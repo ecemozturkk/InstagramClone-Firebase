@@ -1,9 +1,4 @@
-//
-//  AppDelegate.swift
-//  InstagramClone-Firebase
-//
-//  Created by Ecem Öztürk on 13.03.2023.
-//
+
 
 import UIKit
 import Firebase
