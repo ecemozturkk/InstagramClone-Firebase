@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -34,6 +35,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             } else {
                 if snapshot?.isEmpty == false && snapshot != nil {
+                    
+                    //verilerin tekrarlanmaması için
+                    self.userImageArray.removeAll(keepingCapacity: false)
+                    self.userCaptionArray.removeAll(keepingCapacity: false)
+                    self.userEmailArray.removeAll(keepingCapacity: false)
+                    self.likeArray.removeAll(keepingCapacity: false)
+                    
                     for document in snapshot!.documents { //snapshot!.documents dökümanların dizisini verir
                         let documentID = document.documentID
                         
@@ -50,17 +58,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                             self.userImageArray.append(imageUrl)
                         }
                     }
-                    
                     self.tableView.reloadData()
                 }
-                
             }
         }
-        
-        
     }
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userEmailArray.count
@@ -70,7 +72,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.userEmailLabel.text = userEmailArray[indexPath.row]
         cell.captionLabel.text = userCaptionArray[indexPath.row]
         cell.likeLabel.text = String(likeArray[indexPath.row])
-        cell.userImageView.image = UIImage(named: "addImage.png")
+        cell.userImageView.sd_setImage(with: URL(string: self.userImageArray[indexPath.row]))
         return cell
     }
 }
