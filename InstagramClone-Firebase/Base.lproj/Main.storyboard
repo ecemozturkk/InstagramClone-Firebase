@@ -166,6 +166,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnr-fN-yWr">
+                                                    <rect key="frame" x="331" y="0.0" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="y38-7P-6aq" firstAttribute="bottom" secondItem="OfA-qe-hKO" secondAttribute="bottomMargin" id="1Ru-NU-Chd"/>
@@ -176,15 +182,18 @@
                                                 <constraint firstItem="weO-WY-j0b" firstAttribute="centerX" secondItem="1pi-lp-gJ3" secondAttribute="centerX" id="PHb-YR-M2Y"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hHl-fg-zI1" secondAttribute="bottom" constant="3" id="QpD-er-pCs"/>
                                                 <constraint firstItem="e9d-mg-IPj" firstAttribute="top" secondItem="1pi-lp-gJ3" secondAttribute="bottom" constant="14" id="S0g-MG-duk"/>
+                                                <constraint firstItem="pnr-fN-yWr" firstAttribute="trailing" secondItem="1pi-lp-gJ3" secondAttribute="trailing" id="U0y-MF-Y0J"/>
                                                 <constraint firstItem="weO-WY-j0b" firstAttribute="centerX" secondItem="OfA-qe-hKO" secondAttribute="centerX" id="Wvo-VT-PMK"/>
                                                 <constraint firstItem="y38-7P-6aq" firstAttribute="leading" secondItem="OfA-qe-hKO" secondAttribute="leadingMargin" constant="-12" id="d81-Pe-MBo"/>
                                                 <constraint firstItem="weO-WY-j0b" firstAttribute="top" secondItem="OfA-qe-hKO" secondAttribute="topMargin" id="fn3-OC-1Vl"/>
                                                 <constraint firstItem="e9d-mg-IPj" firstAttribute="trailing" secondItem="hHl-fg-zI1" secondAttribute="trailing" id="g7j-nM-yFW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="e9d-mg-IPj" secondAttribute="trailing" constant="3" id="oAT-cd-Tgx"/>
+                                                <constraint firstItem="1pi-lp-gJ3" firstAttribute="top" secondItem="pnr-fN-yWr" secondAttribute="bottom" constant="19" id="p9k-0A-Tjs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="e9d-mg-IPj" id="TjD-GK-oRC"/>
+                                            <outlet property="documentIdLabel" destination="pnr-fN-yWr" id="hiI-82-LWf"/>
                                             <outlet property="likeLabel" destination="hHl-fg-zI1" id="K0O-Ll-04G"/>
                                             <outlet property="userEmailLabel" destination="weO-WY-j0b" id="3lt-7I-N9O"/>
                                             <outlet property="userImageView" destination="1pi-lp-gJ3" id="WC9-nR-544"/>
