@@ -15,19 +15,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
 
+        
+    }
+    // MARK: Kullanıcı girişi
     @IBAction func signInClicked(_ sender: Any) {
         if emailText.text != "" && passwordText.text != "" {
-            Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { authdata, <#Error?#> in
-                <#code#>
+            Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { auth, error in
+                if error != nil {
+                    self.makeAlert(titleInput: "Error!", messageInput: error?.localizedDescription ?? "Error")
+                } else {
+                    self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                }
             }
+            
         } else {
-            makeAlert(titleInput: "Error", messageInput: "Plase enter your username and password.")
+            makeAlert(titleInput: "Error!", messageInput: "Please enter your username and password.")
         }
     }
-    
+    //MARK: Yeni kullanıcı kayıt
     @IBAction func signUpClicked(_ sender: Any) {
         // email ve şifre var mı kontrolü
         if emailText.text != "" && passwordText.text != "" {
@@ -46,7 +52,7 @@ class ViewController: UIViewController {
         
         
     }
-    // Alert pop-up'ı
+    // MARK: Alert pop-up'ı
     func makeAlert(titleInput: String, messageInput: String) {
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
         let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default)
